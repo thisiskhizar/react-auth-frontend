@@ -17,13 +17,8 @@ const ForgotPasswordPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await forgotPassword(email);
-    if (response.success) {
-      setIsSubmitted(true);
-    } else {
-      // Handle error (e.g., show a toast notification)
-      console.error(response.message);
-    }
+    await forgotPassword(email);
+    setIsSubmitted(true);
   };
 
   return (
@@ -34,7 +29,7 @@ const ForgotPasswordPage = () => {
       className="max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden"
     >
       <div className="p-8">
-        <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
+        <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-sky-400 to-blue-300 text-transparent bg-clip-text">
           Forgot Password
         </h2>
 
@@ -55,7 +50,7 @@ const ForgotPasswordPage = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
+              className="w-full py-3 px-4 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold rounded-lg shadow-lg hover:from-sky-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
               type="submit"
             >
               {isLoading ? (
@@ -71,7 +66,7 @@ const ForgotPasswordPage = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
-              className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              className="w-16 h-16 bg-sky-500 rounded-full flex items-center justify-center mx-auto mb-4"
             >
               <Mail className="h-8 w-8 text-white" />
             </motion.div>
@@ -86,7 +81,7 @@ const ForgotPasswordPage = () => {
       <div className="px-8 py-4 bg-gray-900 bg-opacity-50 flex justify-center">
         <Link
           to={"/login"}
-          className="text-sm text-green-400 hover:underline flex items-center"
+          className="text-sm text-sky-400 hover:underline flex items-center"
         >
           <ArrowLeft className="h-4 w-4 mr-2" /> Back to Login
         </Link>

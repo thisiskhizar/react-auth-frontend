@@ -30,9 +30,6 @@ export const useAuthStore = create((set, get) => ({
 
       set({ isLoading: false, user: response.data.user });
 
-      console.log("Registration Success!");
-      console.log("User:", response.data.user);
-
       return { success: true };
     } catch (error) {
       set({
